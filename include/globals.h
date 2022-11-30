@@ -216,7 +216,43 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
 // LEDs, how many, on how many channels, laid out into how many fang/rings, and so on.  You can also
 // specify the audio system config like how many band channels.
 
-#if DEMO 
+#if XMAS2022
+    // Tom's library Christmas tree 2022
+
+    #define MATRIX_WIDTH            50
+    #define MATRIX_HEIGHT           4
+    #define NUM_LEDS                (MATRIX_WIDTH*MATRIX_HEIGHT)
+    #define NUM_CHANNELS            1
+    #define NUM_RINGS               5
+    #define RING_SIZE_0             24
+    #define ENABLE_AUDIO            0
+
+    #define POWER_LIMIT_MW       12 * 10 * 1000   // 10 amp supply at 5 volts assumed
+
+    // Once you have a working project, selectively enable various additional features by setting
+    // them to 1 in the list below.  This DEMO config assumes no audio (mic), or screen, etc.
+
+    #define ENABLE_WIFI             1   // Connect to WiFi
+    #define INCOMING_WIFI_ENABLED   1   // Accepting incoming color data and commands
+    #define TIME_BEFORE_LOCAL       2   // How many seconds before the lamp times out and shows local content
+    #define ENABLE_NTP              1   // Set the clock from the web
+    #define ENABLE_OTA              1   // Accept over the air flash updates
+
+    #if M5STICKC || M5STICKCPLUS
+        #define LED_PIN0 32
+    #else
+        #define LED_PIN0 5
+    #endif
+
+    // The webserver serves files from its SPIFFS filesystem, such as index.html, and those files must be
+    // uploaded to SPIFFS with the "Upload Filesystem Image" command before it can work.  When running
+    // you should be able to see/select the list of effects by visiting the chip's IP in a browser.  You can
+    // get the chip's IP by watching the serial output or checking your router for the DHCP given to 'LEDWifi'
+
+    #define ENABLE_WEBSERVER        0   // Turn on the internal webserver
+
+
+#elif DEMO 
 
     // This is a simple demo configuration.  To build, simply connect the data lead from a WS2812B
     // strip to pin 5.  This does not use the OLED, LCD, or anything fancy, it simply drives the

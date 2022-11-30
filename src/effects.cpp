@@ -307,7 +307,11 @@ std::shared_ptr<LEDStripEffect> GetSpectrumAnalyzer(CRGB color)
 
 DRAM_ATTR LEDStripEffect *AllEffects[] =
     {
-#if DEMO
+#if XMAS2022
+        // new RainbowFillEffect(6, 2),
+        new StarryNightEffect<QuietStar>("Green Twinkle Stars", GreenColors_p, STARRYNIGHT_PROBABILITY, 1, LINEARBLEND, 2.0, 0.0, STARRYNIGHT_MUSICFACTOR),           // Green Twinkle
+        
+#elif DEMO
 
         new RainbowFillEffect(6, 2),
 
