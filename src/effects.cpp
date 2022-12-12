@@ -277,6 +277,29 @@ const CRGBPalette256 USAColors_p =
         CRGB::Red,
 };
 
+const CRGBPalette256 WhiteColors_p =
+{
+        CRGB::White,
+        CRGB::WhiteSmoke,
+        CRGB::FairyLight,
+        CRGB::Linen,
+
+        CRGB::White,
+        CRGB::WhiteSmoke,
+        CRGB::FairyLight,
+        CRGB::Linen,
+
+        CRGB::White,
+        CRGB::WhiteSmoke,
+        CRGB::FairyLight,
+        CRGB::Linen,
+
+        CRGB::White,
+        CRGB::WhiteSmoke,
+        CRGB::FairyLight,
+        CRGB::Linen
+};
+
 const CRGBPalette256 rainbowPalette(RainbowColors_p);
 
 #if ENABLE_AUDIO
@@ -308,9 +331,15 @@ std::shared_ptr<LEDStripEffect> GetSpectrumAnalyzer(CRGB color)
 DRAM_ATTR LEDStripEffect *AllEffects[] =
     {
 #if XMAS2022
+
+        new ColorFillEffect(CRGB::DarkRed, 2),
+        new ColorFillEffect(CRGB::Gold, 2),
         // new RainbowFillEffect(6, 2),
-        new StarryNightEffect<QuietStar>("Green Twinkle Stars", GreenColors_p, STARRYNIGHT_PROBABILITY, 1, LINEARBLEND, 2.0, 0.0, STARRYNIGHT_MUSICFACTOR),           // Green Twinkle
-        
+        // new StarryNightEffect<QuietStar>("White Twinkle Stars", WhiteColors_p, STARRYNIGHT_PROBABILITY, 1, LINEARBLEND, 2.0, 0.0, STARRYNIGHT_MUSICFACTOR),           // Green Twinkle
+        // new StarryNightEffect<QuietStar>("Green Twinkle Stars", GreenColors_p, STARRYNIGHT_PROBABILITY, 1, LINEARBLEND, 2.0, 0.0, STARRYNIGHT_MUSICFACTOR),           // Green Twinkle
+        // new TwinkleEffect(NUM_LEDS / 4, 10),
+        // new StarryNightEffect<QuietStar>("USA Twinkle Stars", USAColors_p, STARRYNIGHT_PROBABILITY, 1, LINEARBLEND, 2.0, 0.0, STARRYNIGHT_MUSICFACTOR),           // Green Twinkle
+
 #elif DEMO
 
         new RainbowFillEffect(6, 2),

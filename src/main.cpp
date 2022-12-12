@@ -332,7 +332,7 @@ void IRAM_ATTR NetworkHandlingLoopEntry(void *)
            it for any reason, we reboot the chip in cases where its required, which we assume from WAIT_FOR_WIFI */
 
         #if ENABLE_WIFI
-            EVERY_N_SECONDS(2)
+            EVERY_N_SECONDS(5)
             {
                 if (WiFi.isConnected() == false && ConnectToWiFi(10) == false)
                 {

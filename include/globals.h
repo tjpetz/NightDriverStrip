@@ -143,27 +143,27 @@
 // If you experiment and mess these up, my go-to solution is to put Drawing on Core 0, and everything else on Core 1. 
 // My current core layout is as follows, and as of today it's solid as of (7/16/21).
 //
-// #define DRAWING_CORE            0
-// #define INCOMING_CORE           1
-// #define NET_CORE                1
-// #define AUDIO_CORE              0
-// #define SCREEN_CORE             1
-// #define DEBUG_CORE              1
-// #define SOCKET_CORE             1
-// #define REMOTE_CORE             1
+#define DRAWING_CORE            0
+#define INCOMING_CORE           1
+#define NET_CORE                1
+#define AUDIO_CORE              0
+#define SCREEN_CORE             1
+#define DEBUG_CORE              1
+#define SOCKET_CORE             1
+#define REMOTE_CORE             1
 
 // Some "Reliability Rules"
 // Drawing must be on Core 1 if using SmartMatrix, else matrix seems not to work
 // It seems the audio sampling interupts WebServer responses, so AUDIO_CORE != NET_CORE
 
-#define DRAWING_CORE            1       // Must be core 1 or it doesn't run with SmartMatrix
-#define NET_CORE                0
-#define AUDIO_CORE              0
-#define AUDIOSERIAL_CORE        0
-#define SCREEN_CORE             0
-#define DEBUG_CORE              0
-#define SOCKET_CORE             1
-#define REMOTE_CORE             0
+// #define DRAWING_CORE            0       // Must be core 1 or it doesn't run with SmartMatrix
+// #define NET_CORE                0
+// #define AUDIO_CORE              0
+// #define AUDIOSERIAL_CORE        0
+// #define SCREEN_CORE             0
+// #define DEBUG_CORE              0
+// #define SOCKET_CORE             0 //1
+// #define REMOTE_CORE             0
 
 
 #define FASTLED_INTERNAL            1   // Suppresses the compilation banner from FastLED
@@ -218,13 +218,21 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
 
 #if XMAS2022
     // Tom's library Christmas tree 2022
+    #define DEFAULT_EFFECT_INTERVAL 1000 * 30                    // interval in milliseconds
 
+    #define WAIT_FOR_WIFI           0 
+    #define COLOR_ORDER             EOrder::RGB
     #define MATRIX_WIDTH            50
-    #define MATRIX_HEIGHT           4
+    #define MATRIX_HEIGHT           1
     #define NUM_LEDS                (MATRIX_WIDTH*MATRIX_HEIGHT)
     #define NUM_CHANNELS            1
-    #define NUM_RINGS               5
-    #define RING_SIZE_0             24
+    #define NUM_RINGS               0
+    // #define RING_SIZE_0             50
+    // #define RING_SIZE_1             40
+    // #define RING_SIZE_2             30
+    // #define RING_SIZE_3             20
+    // #define RING_SIZE_4             10
+
     #define ENABLE_AUDIO            0
 
     #define POWER_LIMIT_MW       12 * 10 * 1000   // 10 amp supply at 5 volts assumed
@@ -233,13 +241,13 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
     // them to 1 in the list below.  This DEMO config assumes no audio (mic), or screen, etc.
 
     #define ENABLE_WIFI             1   // Connect to WiFi
-    #define INCOMING_WIFI_ENABLED   1   // Accepting incoming color data and commands
+    #define INCOMING_WIFI_ENABLED   0   // Accepting incoming color data and commands
     #define TIME_BEFORE_LOCAL       2   // How many seconds before the lamp times out and shows local content
     #define ENABLE_NTP              1   // Set the clock from the web
     #define ENABLE_OTA              1   // Accept over the air flash updates
 
     #if M5STICKC || M5STICKCPLUS
-        #define LED_PIN0 32
+        #define LED_PIN0 26
     #else
         #define LED_PIN0 5
     #endif
@@ -281,7 +289,7 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
     #define ENABLE_OTA              0   // Accept over the air flash updates
 
     #if M5STICKC || M5STICKCPLUS
-        #define LED_PIN0 32
+        #define LED_PIN0 26 // 32
     #else
         #define LED_PIN0 5
     #endif
