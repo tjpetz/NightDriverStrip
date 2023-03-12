@@ -289,7 +289,7 @@ void IRAM_ATTR DebugLoopTaskEntry(void *)
     while (!WiFi.isConnected())                             // Wait for wifi, no point otherwise
         delay(100);
 
-    Debug.begin(cszHostname, RemoteDebug::INFO);            // Initialize the WiFi debug server
+    Debug.begin(cszHostname, RemoteDebug::VERBOSE);            // Initialize the WiFi debug server
 
     for (;;)                                                // Call Debug.handle() 20 times a second
     {

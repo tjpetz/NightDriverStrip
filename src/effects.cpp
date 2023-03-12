@@ -332,8 +332,9 @@ DRAM_ATTR LEDStripEffect *AllEffects[] =
     {
 #if XMAS2022
 
-        new ColorFillEffect(CRGB::DarkRed, 2),
-        new ColorFillEffect(CRGB::Gold, 2),
+        new ColorFillEffect(CRGB::DarkRed, 1),
+        new ColorFillEffect(CRGB::Gold, 1),
+        new ColorFillEffect(CRGB::DarkGreen, 1),
         // new RainbowFillEffect(6, 2),
         // new StarryNightEffect<QuietStar>("White Twinkle Stars", WhiteColors_p, STARRYNIGHT_PROBABILITY, 1, LINEARBLEND, 2.0, 0.0, STARRYNIGHT_MUSICFACTOR),           // Green Twinkle
         // new StarryNightEffect<QuietStar>("Green Twinkle Stars", GreenColors_p, STARRYNIGHT_PROBABILITY, 1, LINEARBLEND, 2.0, 0.0, STARRYNIGHT_MUSICFACTOR),           // Green Twinkle

@@ -97,7 +97,8 @@
 #define FASTLED_INTERNAL        1   // Silence FastLED build banners
 #define NTP_DELAY_COUNT         20  // delay count for ntp update
 #define NTP_PACKET_LENGTH       48  // ntp packet length
-#define TIME_ZONE             (-8)  // My offset from London (UTC-8)
+#define TIME_ZONE             (-5)  // My offset from London (UTC-5)
+#define POSIX_TIMEZONE         "EST5EDT,M3.2.0,M11.1.0"         // POSIX standard timezone
 
 // C Helpers and Macros
 
@@ -222,7 +223,7 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
 
     #define WAIT_FOR_WIFI           0 
     #define COLOR_ORDER             EOrder::RGB
-    #define MATRIX_WIDTH            50
+    #define MATRIX_WIDTH            10
     #define MATRIX_HEIGHT           1
     #define NUM_LEDS                (MATRIX_WIDTH*MATRIX_HEIGHT)
     #define NUM_CHANNELS            1
@@ -235,7 +236,7 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
 
     #define ENABLE_AUDIO            0
 
-    #define POWER_LIMIT_MW       12 * 10 * 1000   // 10 amp supply at 5 volts assumed
+    #define POWER_LIMIT_MW          1500   
 
     // Once you have a working project, selectively enable various additional features by setting
     // them to 1 in the list below.  This DEMO config assumes no audio (mic), or screen, etc.
@@ -244,7 +245,11 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
     #define INCOMING_WIFI_ENABLED   0   // Accepting incoming color data and commands
     #define TIME_BEFORE_LOCAL       2   // How many seconds before the lamp times out and shows local content
     #define ENABLE_NTP              1   // Set the clock from the web
-    #define ENABLE_OTA              1   // Accept over the air flash updates
+    #define ENABLE_OTA              0   // Accept over the air flash updates
+
+    #define TOGGLE_BUTTON_1         37
+    #define TOGGLE_BUTTON_2         39
+    #define NUM_INFO_PAGES          2
 
     #if M5STICKC || M5STICKCPLUS
         #define LED_PIN0 26

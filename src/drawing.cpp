@@ -259,7 +259,7 @@ void ShowStrip(uint16_t numToShow)
     {
         if (numToShow > 0)
         {
-            debugV("Telling FastLED that we'll be drawing %d pixels\n", numToShow);
+            // debugV("Telling FastLED that we'll be drawing %d pixels\n", numToShow);
             
             for (int i  = 0; i < NUM_CHANNELS; i++)
             {
