@@ -223,7 +223,7 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
 
     #define WAIT_FOR_WIFI           0 
     #define COLOR_ORDER             EOrder::RGB
-    #define MATRIX_WIDTH            10
+    #define MATRIX_WIDTH            50
     #define MATRIX_HEIGHT           1
     #define NUM_LEDS                (MATRIX_WIDTH*MATRIX_HEIGHT)
     #define NUM_CHANNELS            1
