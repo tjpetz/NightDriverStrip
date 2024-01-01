@@ -176,6 +176,21 @@ void LoadEffectFactories()
 
       #include "custom_effects.h"
 
+    #elif XMAS2023
+
+        // Set the effect set version to 0 to force using what is defined here rather than
+        // persisited on the NVRAM.
+
+        #define EFFECT_SET_VERSION 0      
+
+        ADD_EFFECT(EFFECT_STRIP_LASER_LINE, LaserLineEffect, 500, 20);
+        ADD_EFFECT(EFFECT_STRIP_FIRE, FireEffect, "Calm Fire", NUM_LEDS, 40, 5, 50, 3, 3, true, true);
+        ADD_EFFECT(EFFECT_STRIP_FIRE, FireEffect, "Medium Fire", NUM_LEDS, 1, 5, 100, 3, 4, true, false);
+        ADD_EFFECT(EFFECT_STRIP_RAINBOW_FILL, RainbowFillEffect, 6, 2);
+        ADD_STARRY_NIGHT_EFFECT(QuietStar, "Green Twinkle Stars", GreenColors_p, STARRYNIGHT_PROBABILITY, 1, LINEARBLEND, 2.0, 0.0, STARRYNIGHT_MUSICFACTOR);           // Green Twinkle
+        ADD_STARRY_NIGHT_EFFECT(QuietStar, "Blue Twinkle Stars", BlueColors_p, STARRYNIGHT_PROBABILITY, 1, LINEARBLEND, 2.0, 0.0, STARRYNIGHT_MUSICFACTOR);           // Green Twinkle
+        ADD_EFFECT(EFFECT_STRIP_METEOR, MeteorEffect, 20, 1, 25, .15, .05);
+
     // Fill effect factories
     #elif DEMO
 
@@ -194,7 +209,7 @@ void LoadEffectFactories()
     #elif LANTERN
 
         ADD_EFFECT(EFFECT_STRIP_FIRE, FireEffect, "Calm Fire", NUM_LEDS, 40, 5, 50, 3, 3, true, true);
-        // ADD_EFFECT(EFFECT_STRIP_LANTERN, LanternEffect);
+        ADD_EFFECT(EFFECT_STRIP_LANTERN, LanternEffect);
 
     #elif MESMERIZER
 

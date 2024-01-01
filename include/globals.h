@@ -258,13 +258,15 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
     #define PROJECT_NAME            "Xmas2023"
     #endif
 
-    #define MATRIX_WIDTH            144
+    #define DEFAULT_EFFECT_INTERVAL 1000 * 10 // 1000 * 30       // Change every 30 seconds
+
+    #define MATRIX_WIDTH            10 // 144
     #define MATRIX_HEIGHT           1
     #define NUM_LEDS                (MATRIX_WIDTH*MATRIX_HEIGHT)
     #define NUM_CHANNELS            1
-    #define ENABLE_AUDIO            0
+    #define ENABLE_AUDIO            1
 
-    #define POWER_LIMIT_MW       12 * 10 * 1000   // 10 amp supply at 5 volts assumed
+    #define POWER_LIMIT_MW       250 // 12 * 10 * 1000   // 10 amp supply at 5 volts assumed
 
     // Once you have a working project, selectively enable various additional features by setting
     // them to 1 in the list below.  This DEMO config assumes no audio (mic), or screen, etc.
@@ -279,7 +281,7 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
     #define ENABLE_OTA              0   // Accept over the air flash updates
 
     #if M5STICKC || M5STICKCPLUS || M5STACKCORE2
-        #define LED_PIN0 32
+        #define LED_PIN0 26
     #elif LILYGOTDISPLAYS3
         #define LED_PIN0 21
     #else
@@ -294,7 +296,6 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
     #ifndef ENABLE_WEBSERVER
         #define ENABLE_WEBSERVER        0   // Turn on the internal webserver
     #endif
-
 
 #elif DEMO
 

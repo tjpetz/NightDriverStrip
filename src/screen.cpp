@@ -438,6 +438,7 @@ void IRAM_ATTR ScreenUpdateLoopEntry(void *)
         Button1.update();
         if (Button1.pressed())
         {
+            debugI(">> Toggle Button 1 Pressed\n");
             std::lock_guard<std::mutex> guard(g_ptrSystem->Display()._screenMutex);
 
             // When the button is pressed advance to the next information page on the little display
@@ -451,6 +452,7 @@ void IRAM_ATTR ScreenUpdateLoopEntry(void *)
         Button2.update();
         if (Button2.pressed())
         {
+            debugI(">> Toggle Button 2 Pressed.\n");
             g_ptrSystem->EffectManager().NextEffect();
             bRedraw = true;
         }
